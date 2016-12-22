@@ -733,7 +733,7 @@ module.directive("mdpClock", ["$animate", "$timeout", function($animate, $timeou
             var onEvent = function(event) {
                 var containerCoords = event.currentTarget.getClientRects()[0];
                 var x = ((event.currentTarget.offsetWidth / 2) - (event.pageX - containerCoords.left)),
-                    y = ((event.pageY - containerCoords.top) - (event.currentTarget.offsetHeight / 2));
+                    y = ((event.clientY - containerCoords.top) - (event.currentTarget.offsetHeight / 2));
 
                 var deg = Math.round((Math.atan2(x, y) * (180 / Math.PI)));
                 $timeout(function() {
